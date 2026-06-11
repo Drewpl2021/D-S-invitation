@@ -854,7 +854,6 @@ body {
   transform: translateX(0);
 }
 
-/* Section titles shimmer */
 .section-title {
   background: linear-gradient(90deg, var(--terracota-oscuro) 0%, var(--terracota-claro) 30%, var(--terracota-oscuro) 60%, var(--terracota-mid) 80%, var(--terracota-oscuro) 100%);
   background-size: 200% auto;
@@ -862,7 +861,11 @@ body {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: shimmer 5s linear infinite;
+  line-height: 1.5;        /* ← espacio para trazos cursivos */
+  padding: 8px 16px;       /* ← que no se corten arriba/abajo/lados */
+  display: block;          /* ← necesario para que el padding funcione */
 }
+
 .section-title.light {
   background: linear-gradient(90deg, var(--dorado) 0%, var(--dorado-claro) 30%, var(--dorado) 60%, #fff8e8 80%, var(--dorado) 100%);
   background-size: 200% auto;
@@ -870,6 +873,9 @@ body {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: shimmer 5s linear infinite;
+  line-height: 1.5;        /* ← igual aquí */
+  padding: 8px 16px;       /* ← igual aquí */
+  display: block;
 }
 
 /* Footer names shimmer */
@@ -1285,16 +1291,16 @@ body {
     </svg>
   </div>
   <p class="section-title">Familias</p>
-  <p class="section-sub dark-text">Quienes nos dieron la vida y el amor</p>
+  <p class="section-sub dark-text">Quienes nos dieron la vida</p>
 
   <div class="familia-grid">
     <div class="familia-card">
       <h3>Del Novio</h3>
-      <p>Padre del Novio<br>Madre del Novio</p>
+      <p>Sixto Gutierrez<br>Dilma Calsin</p>
     </div>
     <div class="familia-card">
       <h3>De la Novia</h3>
-      <p>Padre de la Novia<br>Madre de la Novia</p>
+      <p>Andrés Montes<br>Veronica Mamani</p>
     </div>
   </div>
 
@@ -1307,11 +1313,13 @@ body {
 
     <div class="padrino-group">
       <h3>Padrinos de Honor</h3>
-      <p>Nombre Padrino<br>Nombre Madrina</p>
+      <p>Jose Luis<br>Nombre Madrina</p>
+      <p>Carlos Huanca<br>Sara</p>
+
     </div>
     <div class="padrino-group">
       <h3>Padrinos de Torta</h3>
-      <p>Nombre Padrino<br>Nombre Madrina</p>
+      <p>Dino Alexis Apaza Sosa</p>
     </div>
   </div>
 </div>
@@ -1344,11 +1352,15 @@ body {
   <div class="datos-divider-h"></div>
   <div class="datos-row">
     <span class="datos-label">Hora</span>
-    <span class="datos-value">10:00 am</span>
+    <span class="datos-value">10:30 am</span>
   </div>
   <div class="datos-divider-h"></div>
   <div class="datos-row">
-    <span class="datos-label">Lugar</span>
+    <span class="datos-label">Matrimonio</span>
+    <span class="datos-value">IASD Villa Hermosa - Jr. Moquegua 852</span>
+  </div>
+  <div class="datos-row">
+    <span class="datos-label">Concentracion</span>
     <span class="datos-value">Juliaca — Puno, Perú</span>
   </div>
 </div>
@@ -1596,10 +1608,10 @@ body {
       a comenzar esta nueva etapa, con amor te dejamos:
     </p>
     <div class="elegant-divider"><div class="eline rev"></div><svg viewBox="0 0 20 20" width="14" height="14"><polygon points="10,2 12,8 18,8 13,12 15,18 10,14 5,18 7,12 2,8 8,8" fill="#c9a96e" opacity="0.6"/></svg><div class="eline"></div></div>
-    <p class="lluvia-name">Briguith Diana Aguilar</p>
-    <p class="lluvia-dato"><span>BCP:</span> 4950 6504 7350 17</p>
-    <p class="lluvia-dato"><span>CCI:</span> 00249510650473501700</p>
-    <p class="lluvia-dato"><span>YAPE:</span> 930 330 231</p>
+    <p class="lluvia-name">Daniel Andrés Gutierrez Calsin</p>
+    <p class="lluvia-dato"><span>BCP:</span> -</p>
+    <p class="lluvia-dato"><span>CCI:</span> -</p>
+    <p class="lluvia-dato"><span>YAPE:</span> 913 335 973</p>
     <p class="lluvia-firma">Con amor, Daniel &amp; Shekanna</p>
   </div>
 </div>
