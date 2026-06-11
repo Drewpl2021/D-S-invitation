@@ -979,9 +979,39 @@ body {
 /* Scroll indicator */
 .cover-scroll { animation: fadeIn 2s ease both 1.5s; opacity: 0; animation-fill-mode: forwards; }
 
+
+#music-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 99999;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--terracota-oscuro);
+  border: 1.5px solid var(--dorado);
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  transition: transform 0.2s;
+  animation: floatUp 4s ease-in-out infinite;
+}
+#music-btn:hover { transform: scale(1.1); }
+#music-btn.muted { opacity: 0.5; }
 </style>
 </head>
 <body>
+  <!-- MÚSICA DE FONDO -->
+<audio id="bg-music" loop preload="auto">
+  <source src="Grupo.mp3" type="audio/mpeg">
+</audio>
+
+<div id="music-btn" onclick="toggleMusic()" title="Música">
+  🎵
+</div>
 <canvas id="stars-canvas"></canvas>
 <div class="page">
 
@@ -1893,6 +1923,35 @@ window.addEventListener('scroll', function() {
     cover.style.transform = '';
   });
 })();
+
+
+// MÚSICA
+var music = document.getElementById('bg-music');
+var musicBtn = document.getElementById('music-btn');
+var musicPlaying = false;
+
+document.body.addEventListener('click', function startOnInteraction() {
+  if (!musicPlaying) {
+    music.volume = 0.35;
+    music.play().then(function() {
+      musicPlaying = true;
+      musicBtn.textContent = '🎵';
+    }).catch(function(){});
+  }
+  document.body.removeEventListener('click', startOnInteraction);
+}, { once: true });
+
+function toggleMusic() {
+  if (music.paused) {
+    music.play();
+    musicBtn.textContent = '🎵';
+    musicBtn.classList.remove('muted');
+  } else {
+    music.pause();
+    musicBtn.textContent = '🔇';
+    musicBtn.classList.add('muted');
+  }
+}
 </script>
 </body>
 </html>
