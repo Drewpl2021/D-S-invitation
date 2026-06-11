@@ -1930,7 +1930,7 @@ var music = document.getElementById('bg-music');
 var musicBtn = document.getElementById('music-btn');
 var musicPlaying = false;
 
-document.body.addEventListener('click', function startOnInteraction() {
+function startMusic() {
   if (!musicPlaying) {
     music.volume = 0.35;
     music.play().then(function() {
@@ -1938,9 +1938,14 @@ document.body.addEventListener('click', function startOnInteraction() {
       musicBtn.textContent = '🎵';
     }).catch(function(){});
   }
-  document.body.removeEventListener('click', startOnInteraction);
-}, { once: true });
+  document.removeEventListener('click', startMusic);
+  document.removeEventListener('touchstart', startMusic);
+  document.removeEventListener('scroll', startMusic);
+}
 
+document.addEventListener('click',      startMusic, { once: true });
+document.addEventListener('touchstart', startMusic, { once: true });
+document.addEventListener('scroll',     startMusic, { once: true });
 function toggleMusic() {
   if (music.paused) {
     music.play();
