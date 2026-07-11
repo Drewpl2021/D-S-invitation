@@ -299,6 +299,36 @@ body {
   font-weight: 600;
 }
 
+/* ══ MONOGRAMA ══ */
+.monogram-wrap {
+  max-width: clamp(220px, 42vw, 320px);
+  margin: 0 auto;
+  position: relative;
+  min-height: 140px;
+  animation: floatUp 6s ease-in-out infinite;
+}
+.monogram-wrap img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 10px 24px rgba(139,58,42,0.2));
+}
+.monogram-placeholder {
+  position: absolute; inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(12px, 2vw, 15px);
+  color: var(--terracota-oscuro);
+  background: repeating-linear-gradient(45deg, rgba(201,169,110,0.07), rgba(201,169,110,0.07) 10px, rgba(201,169,110,0.13) 10px, rgba(201,169,110,0.13) 20px);
+}
+.monogram-wrap.img-missing img { display: none; }
+.monogram-wrap.img-missing .monogram-placeholder { display: flex; }
+
 /* ══ GALERÍA ══ */
 .gallery-grid {
   display: grid;
@@ -1463,6 +1493,16 @@ body {
     <div class="eline rev"></div>
     <svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402z" fill="#b55a40" opacity="0.7"/></svg>
     <div class="eline"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════
+     MONOGRAMA
+══════════════════════ -->
+<div class="section cream" style="padding-top:clamp(20px,4vw,32px);padding-bottom:clamp(20px,4vw,32px);">
+  <div class="monogram-wrap">
+    <img src="monograma.png" alt="Monograma Daniel y Shekanna" onerror="this.style.display='none';this.closest('.monogram-wrap').classList.add('img-missing')">
+    <span class="monogram-placeholder">monograma.png</span>
   </div>
 </div>
 
